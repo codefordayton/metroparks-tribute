@@ -1,0 +1,22 @@
+{
+  "name": "metroparks-tribute",
+  "version": "1.0.0",
+  "description": "A Code for Dayton project to help Dayton's Five Rivers MetroParks revamp their tribute page.",
+  "scripts": {
+    "start": "browser-sync start --config bsync-config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefordayton/metroparks-tribute.git"
+  },
+  "author": "Code for Dayton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codefordayton/metroparks-tribute/issues"
+  },
+  "homepage": "https://github.com/codefordayton/metroparks-tribute#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0"
+  }
+}
