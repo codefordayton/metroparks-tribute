@@ -17,6 +17,9 @@ Once we've got something that we're all happy with, we'll help integrate the
 code into their Wordpress CMS. For convenience, we'll be developing this as
 a standalone static site.
 
+This new page should follow the conventions on their existing reserve a shelter
+page: http://www.metroparks.org/rentals-permits/reserve-a-shelter/
+
 For more information, please contact
 [Michael Bowman](mailto:bowmanmc@gmail.com) or stop by our slack channel
 from http://opendayton.org/ to help!
@@ -31,6 +34,10 @@ from http://opendayton.org/ to help!
 system and use the built in web server. For Python 3 users,
 run ```python -m http.server 9000``` and for Python 2 users, run ```python -m SimpletHTTPServer 9000```
 - Open your browser to http://localhost:9000 to preview the site.
+
+
+## Data
+https://docs.google.com/spreadsheets/d/1rOgUf2f6PwxUKVUZ9RgmO6Ulhh5PquNuFvNROovvd1w
 
 
 ## Code of Conduct
