@@ -1,0 +1,1395 @@
+/* General */
+a { cursor: pointer; }
+.insivia-frmp-row { position: relative; }
+.insivia-frmp-row:before,
+.insivia-frmp-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+.insivia-col-1 { max-width: 100%; }
+.insivia-col-2 { max-width: 50%; }
+.insivia-col-3 { max-width: 33%; }
+.insivia-col-32 { max-width: 66%; }
+.insivia-col-4 { max-width: 25%; }
+.insivia-col-43 { max-width: 75%; }
+.insivia-col-7 { max-width: 14%; }
+
+.header-cart-area { display: none; visibility: hidden; }
+  .header-cart-area.show { display: inline-block; visibility: visible; cursor: pointer; }
+
+/* Lightbox */
+.insivia-frmp-lighbox { position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(6,6,6,0.85); z-index: 99999; display: none; overflow-y: scroll; }
+
+/* Filters */
+.insivia-frmp-filter {
+  background-color: #dce4ee !important;
+  padding: 20px 10px 15px !important;
+  border: none;
+  margin: 25px 0;
+}
+  .insivia-frmp-filter ul { padding: 0; margin: 0; }
+    .insivia-frmp-filter ul li { list-style: none; float: left; margin-left: 0!important; padding: 0.2em 0 0.2em 1em; position: relative; }
+      .insivia-frmp-filter ul li:before { display: none!important; }
+      .insivia-frmp-filter ul li:first-of-type { padding-left: 0; }
+      
+      .insivia-frmp-filter label {
+        color: #417caf;
+        font-size: 12px;
+        display: block;
+        font-weight: 400;
+        padding-bottom: 5px;
+        font-family: 'Roboto', sans-serif;
+      }
+      .insivia-frmp-filter select {
+        background-color: white;
+        height: 32px;
+        border: none;
+        outline: none;
+        width: 100%;
+        display: block;
+        text-transform: none;
+      }
+      .insivia-frmp-filter input[type="text"],
+      .insivia-frmp-filter input[type="number"] {
+        background-color: white;
+        height: 32px;
+        border: none;
+        outline: none;
+        width: 100%;
+        display: block;
+        font-size: 13px;
+        color: #505758;
+        padding: 3px;
+          -webkit-border-radius: 3px;
+        border-radius: 3px;
+      }
+      .insivia-frmp-filter .form-seperator {
+        width: 10%;
+        font-size: 15px;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(0, 0, 0, 0.7);
+        padding-top: 5%!important;
+        text-align: center;
+        padding-right: 1em!important;
+      }
+      .insivia-frmp-filter input[type="button"] {
+          -webkit-appearance: button;
+          -moz-appearance: button;
+        appearance: button;
+        background-color: #417caf;
+        color: white;
+        font-family: 'Neutre Demi';
+        letter-spacing: 1px;
+        color: white;
+        text-transform: uppercase;
+        padding: 0.8em 1.2em;
+        text-align: center;
+        text-decoration: none;
+        margin: 1em 0;
+        font-size: 12pt;
+        font-weight: 100;
+        border: none;
+          -webkit-border-radius: 0;
+        border-radius: 0;
+          -webkit-transition: all ease-in-out 0.4s;
+          -moz-transition: all ease-in-out 0.4s;
+          -o-transition: all ease-in-out 0.4s;
+          -ms-transition: all ease-in-out 0.4s;
+        transition: all ease-in-out 0.4s;
+      }
+        .insivia-frmp-filter input[type="button"]:hover { background-color: #3a6f9c; }
+
+/* List View */
+.list-view { margin: 10px 0; padding: 0; }
+  .list-view > li {
+    margin-left: 0!important;
+    padding: 0.2em 0 0.2em 1em;
+    position: relative;
+    background-color: #f8fafc;
+    padding: 20px 15px;
+    border-top: 0.2em solid #eaeff5;
+    border-bottom: 0.2em solid #eaeff5;
+    border-right: none;
+    border-left: none;
+      -webkit-transition: all ease-in-out 0.4s;
+      -moz-transition: all ease-in-out 0.4s;
+      -o-transition: all ease-in-out 0.4s;
+      -ms-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+    list-style: none;
+  }
+  .list-view > li:hover { background-color: white; }
+  .list-view > li:before { display: none!important; }
+    .insivia-frmp-list-item-content { display: block; padding: 10px; }
+      .insivia-frmp-list-item-content-left,
+      .insivia-frmp-list-item-content-middle,
+      .insivia-frmp-list-item-content-right { display: block; float: left; width: 33%; }
+        
+        /*left*/
+        .insivia-frmp-list-item-name { display: block; font-size: 18px; color: #417caf; margin: 0; padding-bottom: 0!important; }
+        .insivia-frmp-list-item-location { color: #e46d24; font-size: 18px; }
+        .insivia-frmp-list-item-address-wrapper {
+          padding: 0.5em 0;
+          width: 67%;
+          margin: 5px 0;
+          display:block;
+          font-weight: 700;
+          font-size: 13px;
+          line-height: 1.2;
+        }
+          .insivia-frmp-list-item-address-wrapper.no-children { padding: 0.1em 0; }
+          .insivia-frmp-list-item-address,
+          .insivia-frmp-list-item-address-2 { display: block; }
+          
+        .insivia-frmp-gallery-link {
+          text-decoration: none;
+          font-size: 14px;
+          margin: 10px 0;
+          font-weight: 500;
+          text-transform: lowercase;
+          background-color: #3c5e28;
+          padding: 5px 15px 6px;
+          cursor: pointer;
+        }
+          .insivia-frmp-gallery-link:after {  
+            background-color: white;
+            color: #3c5e28;
+            font-family: 'Icons';
+            font-size: 10px;
+            padding: 2px;
+            text-align: center;
+            content: '\f061';
+            margin-left: 8px !important;
+          }
+          
+          .insivia-frmp-gallery-link a,
+          .insivia-frmp-gallery-link a:hover { color: white; text-decoration: none; }
+
+        /*middle*/
+        .insivia-frmp-list-item-content-middle { padding: 0 10px; }
+
+        /*right*/
+        .insivia-frmp-list-item-view-details-wrapper { padding: 5px 0; }
+          .insivia-frmp-list-item-view-details-wrapper a,
+          .insivia-frmp-list-item-reserve-now-wrapper a {
+            text-decoration: none;
+            display: block;
+            color: white;
+            position: relative;
+            margin: 0;
+            padding: 0.6em 10px;
+            background-color: #417caf;
+            font-family: 'Neutre Demi';
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12pt;
+            font-weight: 100;
+            border: none;
+              -webkit-transition: all ease-in-out 0.4s;
+              -moz-transition: all ease-in-out 0.4s;
+              -o-transition: all ease-in-out 0.4s;
+              -ms-transition: all ease-in-out 0.4s;
+            transition: all ease-in-out 0.4s;
+            line-height: 22px;
+              -webkit-border-radius: 0;
+            border-radius: 0;
+          }
+            .insivia-frmp-list-item-view-details-wrapper a:hover,
+            .insivia-frmp-list-item-reserve-now-wrapper a:hover { background-color: #3a6f9c; color: white; }
+            
+            .insivia-frmp-list-item-view-details-wrapper a:after,
+            .insivia-frmp-list-item-reserve-now-wrapper a:after {
+              font-family: 'Icons';
+              content: '\f061';
+              position: absolute;
+              right: 5px;
+              top: 12px;
+            }
+
+/* Calendar List View */  
+.insivia-frmp-list-view-days { margin: 0; padding: 0; }
+
+.listview .insivia-frmp-event-day {
+  display: none;
+  visibility: none;
+  padding: 1.5em 0;
+  list-style: none;
+}
+  .listview .insivia-frmp-event-day:before { display: none!important; }
+  .listview .insivia-frmp-event-day.hasEvent { display: list-item; visibility: visible; }
+  
+    .listview .insivia-frmp-list-view-date {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.125em;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+      .listview .insivia-frmp-list-view-display-date { color: rgb(228,109,36); }
+      
+.listview .insivia-frmp-list-view-event-list { margin: 0; padding: 0; }
+  .listview .insivia-frmp-list-view-event-list > li {
+    padding: 0.5em 0 0.5em 1em;
+    position: relative;
+    list-style: none;
+    background-color: #f8fafc;
+    border-top: 0.2em solid #eaeff5;
+    border-bottom: 0.2em solid #eaeff5;
+    border-right: none;
+    border-left: none;
+      -webkit-transition: all ease-in-out 0.4s;
+      -moz-transition: all ease-in-out 0.4s;
+      -o-transition: all ease-in-out 0.4s;
+      -ms-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+  }
+    .listview .insivia-frmp-list-view-event-list > li:before { display: none!important; }
+    .listview .insivia-frmp-list-view-event-list > li:hover { background-color: white; }
+    
+    .listview .insivia-frmp-event-title { padding: 0.2em 0 0.2em 1em; display: block; }
+      .listview .insivia-frmp-event-title a,
+      .listview .insivia-frmp-event-title a:hover {
+        color: #417caf;
+        font-size: 20px;
+        font-weight: 500;
+          -webkit-transition: all ease-in-out 0.4s;
+          -moz-transition: all ease-in-out 0.4s;
+          -o-transition: all ease-in-out 0.4s;
+          -ms-transition: all ease-in-out 0.4s;
+        transition: all ease-in-out 0.4s;
+      }
+    .listview .insivia-frmp-list-view-event-bottom { padding: 0 0 0 1em; }
+    .listview .insivia-frmp-list-view-event-bottom:hover { cursor: pointer; }
+
+  .listview .insivia-frmp-list-view-event-info-list { margin: 0; padding: 0; }
+    .listview .insivia-frmp-list-view-event-info-list li { list-style: none; }
+      .listview .insivia-frmp-list-view-event-info-list li:before { display: none; }
+      
+      .listview .insivia-frmp-list-view-event-info-item { color: #4c4c4c; font-size: 12px; }
+      
+      .listview .insivia-frmp-list-view-event-left { padding-right: 0.3em; }
+      .listview .insivia-frmp-list-view-event-right { padding: 0 0.3em; }
+      
+.listview .insivia-frmp-event-series {
+  font-size: 10px;
+  padding: 0.3em 0;
+  display: inline-block;
+  color: rgb(228,109,36);
+  padding-left: 1em;
+  position: relative;
+}
+
+/*
+Colors
+
+Green (Discover)
+Tikes: Entry
+Explorer & Voyager: Entry
+Explorer: Entry
+Voyager: entry
+
+Blue (Act)
+Tike: Ownership
+Explorer & Voyager: Ownership
+Explorer: Ownership
+Voyager: Ownership
+
+Orange (Share)
+Tikes: Empowerment
+Explorer & Voyager: Empowerment
+Explorer: Empowerment
+Voyager: empowerment
+*/
+
+  .series-green:after,
+  .series-blue:after,
+  .series-orange:after {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    content: '\25B2';
+    right: -15px;
+  }
+    .series-green:after { color: #3c5e28; }
+    .series-blue:after { color: #417caf; }
+    .series-orange:after { color: rgb(228,109,36); }
+
+/* Calendar */
+#insivia-frmp-calendar { padding: 0; max-width: 100%; }
+  #insivia-frmp-calendar .insivia-frmp-calendar-nav-wrapper { background-color: #d9e2ed; padding: 20px 10px 15px; }
+    #insivia-frmp-calendar .insivia-frmp-calendar-nav,
+    .insivia-frmp-list-nav {
+      font-size: 24px;
+      float: left;
+      min-height: 1px;
+      padding: 0 0.3em;
+      position: relative;
+      width: 100%;
+    }
+    .insivia-frmp-list-nav { width: 50%; }
+      .calendar-prev,
+      .list-prev { text-align: left; }
+      .calendar-next,
+      .list-next { text-align: right; }
+        #insivia-frmp-calendar .insivia-frmp-calendar-nav a,
+        .insivia-frmp-list-nav a {
+          background-color: #3c5e28;
+          padding: 3px 10px;
+          color: white!important;
+          font-size: 24px;
+          font-family: 'Roboto', sans-serif;
+          line-height: 22px;
+          text-decoration: none;
+            -webkit-transition: all ease-in-out 0.4s;
+            -moz-transition: all ease-in-out 0.4s;
+            -o-transition: all ease-in-out 0.4s;
+            -ms-transition: all ease-in-out 0.4s;
+          transition: all ease-in-out 0.4s;
+        }
+      .insivia-frmp-calendar-month  {
+        color: #3c5e28;
+        font-size: 22px;
+        font-weight: 500;
+        float: left;
+        min-height: 1px;
+        padding: 0 0.3em;
+        position: relative;
+        width: 100%;
+        text-align: center;
+      }
+    
+    #insivia-frmp-calendar .insivia-frmp-calendar-days-of-the-week { background-color: #d9e2ed; padding: 10px; }
+      #insivia-frmp-calendar .insivia-frmp-calendar-day-of-the-week {
+        color: #417caf;
+        font-weight: 500;
+        font-size: 16px;
+        padding-left: 8px;
+        float: left;
+        min-height: 1px;
+        padding: 0 0.3em;
+        position: relative;
+        width: 100%;
+      }
+      
+    #insivia-frmp-calendar .insivia-frmp-calendar-days { width: 102%; }
+      #insivia-frmp-calendar .insivia-frmp-calendar-day {
+        background-color: #f8fafc;
+        border: 0.1em solid #eaeff5;
+        min-height: 230px;
+        color: black;
+      }
+        #insivia-frmp-calendar .insivia-frmp-calendar-day.inactive { background-color: #f8fafc; }
+        #insivia-frmp-calendar .insivia-frmp-calendar-day.inactive:hover { background: rgba(6,6,6,0.6); }
+        
+          #insivia-frmp-calendar .insivia-frmp-calendar-day-content {
+            background-color: #f8fafc !important;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            padding-bottom: 0;
+            z-index: 1;
+              -webkit-box-shadow: 0 5px 5px 3px rgba(6,6,6,0);
+            box-shadow: 0 5px 5px 3px rgba(6,6,6,0);
+              -webkit-transition: all 0.5s linear;
+              -moz-transition: all 0.5s linear;
+              -ms-transition: all 0.5s linear;
+              -o-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+          }
+            #insivia-frmp-calendar .insivia-frmp-calendar-day-content.full {
+              bottom: auto;
+              padding-bottom: 30px;
+              z-index: 50;
+                -webkit-box-shadow: 0 5px 5px 3px rgba(6, 6, 6, 0.15);
+              box-shadow: 0 5px 5px 3px rgba(6, 6, 6, 0.15);
+            }
+            
+            #insivia-frmp-calendar .insivia-frmp-calendar-date {
+              color: #444a4b;
+              font-weight: 500;
+              float: right;
+              clear: both;
+              display: inline-block;
+              padding: 0.3em;
+              font-size: 16px;
+              line-height: 22px;
+              font-family: 'Roboto', sans-serif;
+            }
+            
+          #insivia-frmp-calendar .insivia-frmp-calendar-day-events { margin: 0; padding: 0; }
+            .insivia-frmp-calendar-day-events li {
+              list-style: none;
+              font-size: 10px;
+              padding: 0.3em;
+              margin: 0;
+              line-height: 1;
+              white-space: inherit;
+              position: relative;
+              margin-left: 20px;
+            }
+              #insivia-frmp-calendar .insivia-frmp-calendar-day-events li:before { display: none; }
+              #insivia-frmp-calendar .insivia-frmp-event-title a {
+                color: #3c5e28;
+                font-size: 11px;
+                font-weight: 600;
+                line-height: 12px;
+                  -webkit-transition: all ease-in-out 0.4s;
+                  -moz-transition: all ease-in-out 0.4s;
+                  -o-transition: all ease-in-out 0.4s;
+                  -ms-transition: all ease-in-out 0.4s;
+                transition: all ease-in-out 0.4s;
+                text-decoration: none;
+              }
+              #inside-frmp-calendar .insivia-frmp-calendar-event-end-time {
+                color: black;
+                font-size: 11px;
+                font-weight: 400;
+                padding-top: 4px;
+                padding-bottom: 10px;
+                display: block;
+              }
+              
+          #insivia-frmp-calendar .insivia-frmp-calendar-more-than-four {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,1);
+            padding: 0.3em;
+            font-size: 10px;
+            text-align: center;
+          }
+          
+/* Landing Pages */
+.insivia-frmp-map { width: 100%; height: 500px; }
+
+/* Popup */
+.insivia-frmp-lighbox-popup {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  width: 75%;
+  min-width: 320px;
+  margin: 0 auto;
+  background: rgb(255,255,255);
+  display: none;
+}
+.insivia-frmp-lighbox-popup:first-of-type { display: block; }
+  .insivia-frmp-lighbox-popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: rgb(255,255,255);
+    cursor: pointer;
+    z-index: 10;
+    color: transparent;
+    width: auto;
+    height: auto;
+    padding: 5px 5px 5px 0px;
+      -webkit-transition: all ease-in-out 0.4s;
+      -moz-transition: all ease-in-out 0.4s;
+      -o-transition: all ease-in-out 0.4s;
+      -ms-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s; 
+  }
+    .insivia-frmp-lighbox-popup-close:after {
+      font-family: 'Icons';
+      content: '\f00d';
+      font-size: 24px;
+      color: #595959;
+      margin-right: 5px;
+        -webkit-transition: all ease-in-out 0.4s;
+        -moz-transition: all ease-in-out 0.4s;
+        -o-transition: all ease-in-out 0.4s;
+        -ms-transition: all ease-in-out 0.4s;
+      transition: all ease-in-out 0.4s;
+    }
+      .insivia-frmp-lighbox-popup-close:hover:after { font-size: 26px; color: #4c4c4c; }
+    
+    
+    .insivia-frmp-lighbox-popup-left-content,
+    .insivia-frmp-lighbox-popup-right-content { padding: 0.3em; position: relative; }
+      .insivia-popup-maps {
+        position: absolute!important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-top: 28.5%;
+        width: 100%;
+      }
+      
+    .insivia-frmp-lighbox-popup-top-content .insivia-frmp-lighbox-popup-left-content { background: rgb(83,121,169); position: relative; padding-top: 21%; }
+      .insivia-frmp-lighbox-popup-date-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: rgb(255,255,255);
+        padding: 10% 0;
+        text-transform: uppercase;
+      }
+        .insivia-frmp-lighbox-popup-month,
+        .insivia-frmp-lighbox-popup-dotw { font-size: 16px; text-align: center; display: block; padding: 0.3em; }
+        .insivia-frmp-lighbox-popup-date { font-size: 64px; text-align: center; display: block; padding: 0 0.3em; }
+    
+    .insivia-frmp-lighbox-popup-top-content .insivia-frmp-lighbox-popup-right-content { }
+    
+    #popup-map {
+      position: absolute!important;
+      /*top: 0;*/
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /*padding-top: 28.5%;*/
+      padding-top: 29%;
+      width: 100%;
+    }
+  
+    .insivia-frmp-lighbox-popup-bottom-content .insivia-frmp-lighbox-popup-left-content { background: rgb(238,241,246); padding: 1em 0.3em; }
+      .insivia-frmp-lighbox-popup-left-content ul { padding: 0; margin: 0; }
+        .insivia-frmp-lighbox-popup-left-content ul li { list-style: none; font-size: 14px; padding: 5px 0; }
+        .insivia-frmp-lighbox-popup-left-content ul li:before { display: none; visibility: hidden; }
+          .insivia-frmp-lighbox-popup-left-content ul li span { display: block; }
+          .insivia-frmp-lighbox-popup-title { font-weight: 700; }
+          .insivia-frmp-lighbox-popup-contact-name { font-weight: 700; }
+          .blue { color: rgb(83,121,169); }
+          .blue * { color: rgb(83,121,169); }
+
+    .insivia-frmp-lighbox-popup-bottom-content .insivia-frmp-lighbox-popup-right-content { padding: 1em 0.3em; border-top: 1px solid rgba(6,6,6,0.2); }
+        .insivia-frmp-lighbox-popup-series,
+        .insivia-frmp-lighbox-popup-time,
+        .insivia-frmp-lighbox-popup-ages-price { font-size: 10px; padding: 0.3em 0; }
+        .insivia-frmp-lighbox-popup-content { font-size: 14px; padding: 0.3em 0; }
+
+.shelter-popup .insivia-frmp-lighbox-popup-right-content { padding: 0; }
+.shelter-popup .insivia-frmp-lighbox-popup-content-wrapper { padding: 15px!important; }
+
+.insivia-popup-maps-static { display: block; width: 100%; height: 300px; }
+.insivia-frmp-lightbox-popup-slider { max-width: 151px; margin: 25px 0 25px 45px; }
+  .insivia-frmp-lightbox-popup-slider .popup-slider { width: 150px; height: 112px; }
+  .insivia-frmp-lightbox-popup-slider .slick-arrow {
+    position: absolute;
+    top: 0;
+    height: 112px;
+    overflow: hidden;
+    width: 45px;
+    text-indent: -99em;
+    border: none!important;;
+    background: #D4DDE9;
+  }
+    .insivia-frmp-lightbox-popup-slider .slick-next { right: -45px; }
+    .insivia-frmp-lightbox-popup-slider .slick-prev { left: -45px; }
+  
+  .insivia-frmp-lightbox-popup-slider .slick-dots {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    position: relative;
+    top: 5px;
+  }
+  
+  .insivia-frmp-lightbox-popup-slider .slick-dots li {
+    float: left;
+    overflow: hidden;
+      -webkit-border-radius: 999em;
+    border-radius: 999em;
+    height: 10px;
+    width: 10px;
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid transparent;
+      -webkit-transition: all 0.25s linear;
+      -moz-transition: all 0.25s linear;
+      -ms-transition: all 0.25s linear;
+      -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    margin: 0 2px;
+  }
+      .insivia-frmp-lightbox-popup-slider .slick-dots li:hover,
+      .insivia-frmp-lightbox-popup-slider .slick-dots li.slick-active { background-color: rgba(0,0,0,0); border: 1px solid rgb(0,0,0); }
+      .insivia-frmp-lightbox-popup-slider .slick-dots li button {
+        background: transparent;
+        text-indent: -999em;
+        border: none;
+          -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+
+.insivia-frmp-lightbox-popup-rate-list li { padding: 0!important; }
+.rental-rate-title { font-weight: 700; padding: 10px 0 0!important; }
+.shelter-popup .insivia-frmp-lighbox-popup-address { width: 100%; }
+.shelter-popup .insivia-frmp-shelter-reserve-now-wrapper { padding: 10px 0; margin: 15px 0; }
+.shelter-popup .reserve-now {
+  background-color: #e46d24;
+  font-family: 'Neutre Demi';
+  letter-spacing: 1px;
+  color: white;
+  text-transform: uppercase;
+  padding: 0.8em 1.2em;
+  text-align: center;
+  text-decoration: none;
+  margin: 1em 0;
+  font-size: 12pt;
+  font-weight: 100;
+  border: none;
+    -webkit-transition: all ease-in-out 0.4s;
+    -moz-transition: all ease-in-out 0.4s;
+    -o-transition: all ease-in-out 0.4s;
+    -ms-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+  display: inline-block;
+}
+
+/* Gallery */
+.gallery-slide-show { height: 500px; width: 75%; margin: 50px auto; }
+  .gallery-slide {
+    width: 100%;
+    height: 500px;;
+    margin: 0 auto;
+    display: block;
+  }
+  .gallery-slide-show .slick-dots {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    position: relative;
+    top: -50px;
+  }
+    .gallery-slide-show .slick-dots li {
+      float: left;
+      overflow: hidden;
+        -webkit-border-radius: 999em;
+      border-radius: 999em;
+      height: 15px;
+      width: 15px;
+      background-color: rgba(255,255,255,0.8);
+      border: 1px solid transparent;
+        -webkit-transition: all 0.25s linear;
+        -moz-transition: all 0.25s linear;
+        -ms-transition: all 0.25s linear;
+        -o-transition: all 0.25s linear;
+      transition: all 0.25s linear;
+      margin: 0 2px;
+    }
+      .gallery-slide-show .slick-dots li:hover,
+      .gallery-slide-show .slick-dots li.slick-active { background-color: rgba(255,255,255,0); border: 1px solid rgb(255,255,255); }
+      .gallery-slide-show .slick-dots li button {
+        background: transparent;
+        text-indent: -999em;
+        border: none;
+          -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+
+/* Home page slider */
+#insivia-frmp-homepage-slider-dates { width: 100%; margin: 20px 0 0; }
+  #insivia-frmp-homepage-slider-dates .slick-list {
+    padding-bottom: 20px;
+  }
+  #insivia-frmp-homepage-slider-dates .slick-arrow {
+      position: absolute;
+      border: none;
+      width: 2.8em;
+      background-color: white;
+      opacity: 0.6;
+      height: 123px;
+      color: transparent;
+      outline: none;
+      -webkit-transition: all ease-in-out 0.4s;
+      -moz-transition: all ease-in-out 0.4s;
+      -o-transition: all ease-in-out 0.4s;
+      -ms-transition: all ease-in-out 0.4s;
+      transition: all ease-in-out 0.4s;
+  }
+    #insivia-frmp-homepage-slider-dates .slick-arrow:after {
+      font-size: 28px;
+      margin-left: -0.8em;
+      font-family: 'Icons';
+      color: #417caf;
+      vertical-align: middle;
+      text-align: center;
+      width: 100%;
+      top: 0;
+      margin-left: -1.2em;
+    }
+      #insivia-frmp-homepage-slider-dates .slick-prev:after { content: '\f104'; }
+  
+  #insivia-frmp-homepage-slider-dates .insivia-frmp-event-slide {
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    width: 13.6%;
+    margin: 0 2px;
+    cursor: pointer;
+    -webkit-transition: all 0.8s linear;
+    -moz-transition: all 0.8s linear;
+    -ms-transition: all 0.8s linear;
+    -o-transition: all 0.8s linear;
+    transition: all 0.8s linear;
+    position: relative;
+    min-height: 120px;
+    outline: none;
+  }
+    #insivia-frmp-homepage-slider-dates .insivia-frmp-event-slide:after {
+      content: '';
+      border: 10px solid rgb(255, 255, 255);
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      width: 2px;
+      margin: 0 auto;
+      opacity: 0;
+      -webkit-transition: all 0.8s linear;
+      -moz-transition: all 0.8s linear;
+      -ms-transition: all 0.8s linear;
+      -o-transition: all 0.8s linear;
+      transition: all 0.8s linear;
+      z-index: 0;
+    }
+      #insivia-frmp-homepage-slider-dates .slick-current:after { opacity: 1; bottom: -20px; border-top-color: rgb(83, 121, 169); }
+    
+    #insivia-frmp-homepage-slider-dates .insivia-frmp-event-slide .insivia-frmp-dow {
+      font-family: 'Neutre Bold';
+      text-transform: uppercase;
+      padding-top: 10px;
+      font-size: 16px;
+      text-align: center;
+      display: block;
+      padding: 0.3em;
+      color: rgb(169, 188, 212);
+        -webkit-transition: all 0.8s linear;
+        -moz-transition: all 0.8s linear;
+        -ms-transition: all 0.8s linear;
+        -o-transition: all 0.8s linear;
+      transition: all 0.8s linear;
+    }
+    #insivia-frmp-homepage-slider-dates .insivia-frmp-event-slide .insivia-frmp-day {
+      font-family: 'Neutre Bold';
+      font-size: 64px;
+      text-align: center;
+      display: block;
+      padding: 0 0.3em;
+      color: rgb(169, 188, 212);
+        -webkit-transition: all 0.8s linear;
+        -moz-transition: all 0.8s linear;
+        -ms-transition: all 0.8s linear;
+        -o-transition: all 0.8s linear;
+      transition: all 0.8s linear;
+    }
+    #insivia-frmp-homepage-slider-dates .insivia-frmp-event-slide .insivia-frmp-month {
+      font-family: 'Neutre Bold';
+      font-size: 19px;
+      text-transform: uppercase;
+      font-size: 16px;
+      text-align: center;
+      display: block;
+      padding: 0.3em 0.3em 10px 0.3em;
+      color: rgb(169, 188, 212);
+        -webkit-transition: all 0.8s linear;
+        -moz-transition: all 0.8s linear;
+        -ms-transition: all 0.8s linear;
+        -o-transition: all 0.8s linear;
+      transition: all 0.8s linear;
+    }
+    
+    #three-day-rundown .insivia-frmp-day {
+      background: url('/wp-content/plugins/insivia-frmp/_assets/images/leaf.png') center no-repeat;
+      color: transparent;
+      text-indent: -999em;
+      overflow: hidden;
+      background-size: contain;
+    }
+    
+      #insivia-frmp-homepage-slider-dates .slick-current .insivia-frmp-dow,
+      #insivia-frmp-homepage-slider-dates .slick-current .insivia-frmp-day,
+      #insivia-frmp-homepage-slider-dates .slick-current .insivia-frmp-month { color: white; }
+    
+    #insivia-frmp-homepage-slider-dates .slick-current { background-color: rgb(83, 121, 169); position: relative; }
+  
+  #insivia-frmp-homepage-slider-dates .slick-arrow {
+    position: absolute;
+    border: none;
+    width: 2.8em;
+    background-color: white;
+    opacity: 0.6;
+    height: 123px;
+    color: transparent;
+    outline: none;
+      -webkit-transition: all ease-in-out 0.4s;
+      -moz-transition: all ease-in-out 0.4s;
+      -o-transition: all ease-in-out 0.4s;
+      -ms-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+  }
+    #insivia-frmp-homepage-slider-dates .slick-prev { left: -3em; top: 0; bottom: 0; }
+      #insivia-frmp-homepage-slider-dates .slick-prev:after {
+        font-family: 'Icons';
+        content: '\f104';
+        color: #417caf;
+        font-size: 55px;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        margin-left: -1.2em;
+      }
+    
+    #insivia-frmp-homepage-slider-dates .slick-next { right: -3em; top: 0; bottom: 0; }
+      #insivia-frmp-homepage-slider-dates .slick-next:after {
+        font-family: 'Icons';
+        content: '\f105';
+        color: #417caf;
+        font-size: 28px;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        margin-left: -0.8em;
+      }
+    
+#insivia-frmp-homepage-slider-events { width: 100%; margin: 0; }
+  #insivia-frmp-homepage-slider-events .insivia-frmp-event-slide { min-height: 120px; outline: none; cursor: pointer; }
+    #insivia-frmp-homepage-slider-events .insivia-frmp-content-bottom {
+      width: 26%;
+      height: auto;
+      min-height: 144px;
+      padding: 0.5em;
+      background-color: rgb(83, 121, 169);
+      color: rgb(255, 255, 255);
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 0.3em;
+    }
+    #insivia-frmp-homepage-slider-events .insivia-frmp-content-bottom .insivia-frmp-content-left { border-right: none !important; }
+      #insivia-frmp-homepage-slider-events .insivia-frmp-content-title {
+        font-size: 18px;
+        color: white;
+        font-weight: 600;
+        padding: 5px;
+        margin: 0;
+      }
+        #insivia-frmp-homepage-slider-events .insivia-frmp-content-date,
+        #insivia-frmp-homepage-slider-events .insivia-frmp-location { font-size: 13px; }   
+               
+    #insivia-frmp-homepage-slider-events .insivia-frmp-content-bottom .insivia-frmp-content-right {
+      
+    }
+      #insivia-frmp-homepage-slider-events .insivia-frmp-content-right .insivia-frmp-content-arrow {
+        text-align: right;
+        position: relative;
+        float: right;
+        color: transparent;
+        background: url("");
+        text-decoration: none;
+        font-size: 24px;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 5px 8px;
+        outline: none;
+        cursor: pointer;
+        -webkit-transition: all ease-in-out 0.4s;
+        -moz-transition: all ease-in-out 0.4s;
+        -o-transition: all ease-in-out 0.4s;
+        -ms-transition: all ease-in-out 0.4s;
+        transition: all ease-in-out 0.4s;
+      }
+        #insivia-frmp-homepage-slider-events .insivia-frmp-content-right .insivia-frmp-content-arrow:before {
+          color: #5379a9;
+          font-family: 'Icons';
+          content: '\f061';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 10px;
+          font-size: 16px;
+          text-align: center;
+        }
+        
+#insivia-frmp-homepage-slider-events .view_all_events {
+  padding: 5% 0.5em;
+  outline: none;
+  width: 18%;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Neutre Bold';
+  text-transform: uppercase;
+  font-size: 16px;
+  display: inline-block;
+  background-color: rgb(83, 121, 169);
+  color: rgb(255, 255, 255);
+  max-height: 144px;
+}
+  #insivia-frmp-homepage-slider-events .view_all_events:after {
+    color: white;
+    font-family: 'Icons';
+    content: '\f061';
+    font-size: 14px;
+    text-align: center;
+    padding-left: 10px;
+  }
+    
+/* Sub Slider */
+.sub-slider { margin: 25px auto; }
+  .sub-slider .slick-arrow {
+    position: absolute;
+    border: none;
+    width: 2.8em;
+    background-color: white;
+    opacity: 0.6;
+    height: 100%;
+    color: transparent;
+    outline: none;
+    -webkit-transition: all ease-in-out 0.4s;
+    -moz-transition: all ease-in-out 0.4s;
+    -o-transition: all ease-in-out 0.4s;
+    -ms-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+    position: absolute;
+    top: 0;
+    height: 129px;
+  }
+    .sub-slider .slick-prev {
+      height: 100%;
+      width: 2em;
+      left: -2em;
+      top: 0;
+      bottom: 0;
+      visibility: hidden;
+    }
+      .sub-slider .slick-prev:after {
+        font-size: 20px;
+        margin-left: -3em;
+        font-family: 'Icons';
+        content: '<';
+        /*color: #417caf;*/
+        color: transparent;
+        font-size: 55px;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        margin-left: -1.2em;
+        color: transparent;
+        background: url('/wp-content/plugins/insivia-frmp/_assets/images/arrow3.png') center no-repeat;
+      }
+      
+    .sub-slider .slick-next {
+      height: 100%;
+      right: -2em;
+      width: 2em;
+      top: 0;
+      bottom: 0;
+    }
+      .sub-slider .slick-next:after {
+        margin-left: -1.2em;
+        font-size: 20px;
+        font-family: 'Icons';
+        content: '>';
+        color: transparent;
+        font-size: 55px;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        margin-left: -0.5em;
+        background: url('/wp-content/plugins/insivia-frmp/_assets/images/arrow2.png') center no-repeat;
+      }
+    .sub-slider .insivia-frmp-event-slide {
+      background-color: white;
+      margin: 0 15px;
+        -webkit-transition: all ease-in-out 0.4s;
+        -moz-transition: all ease-in-out 0.4s;
+        -o-transition: all ease-in-out 0.4s;
+        -ms-transition: all ease-in-out 0.4s;
+      transition: all ease-in-out 0.4s;
+      max-width: 330px;
+    }  
+    .sub-slider .insivia-frmp-event-slide:hover,
+    .sub-slider .insivia-frmp-event-slide.slick-current { background-color: #5379a9; }
+    
+      .sub-slider .insivia-frmp-content-left {
+        float: left;
+        width: 87.1%;
+        display: flex;
+        align-items: center;
+      }
+        .sub-slider .insivia-frmp-sub-content-left {
+          width: 40%;
+          float: left;
+          vertical-align: top;
+          border-right: 1px solid rgba(83,121,169,0.5);
+          padding: 5px 0;
+            -webkit-transition: all ease-in-out 0.4s;
+            -moz-transition: all ease-in-out 0.4s;
+            -o-transition: all ease-in-out 0.4s;
+            -ms-transition: all ease-in-out 0.4s;
+          transition: all ease-in-out 0.4s;
+        }
+          .sub-slider .insivia-frmp-content-end-date { padding-left: 5px; }
+            .sub-slider .insivia-frmp-content-dow,
+            .sub-slider .insivia-frmp-content-day,
+            .sub-slider .insivia-frmp-content-month {
+              color: #5379a9;
+              text-transform: uppercase;
+              font-family: 'Neutre Demi';
+              padding: 0 5px;
+              display: block;
+              font-size: 16px;
+              text-align: center;
+                -webkit-transition: all ease-in-out 0.4s;
+                -moz-transition: all ease-in-out 0.4s;
+                -o-transition: all ease-in-out 0.4s;
+                -ms-transition: all ease-in-out 0.4s;
+              transition: all ease-in-out 0.4s;
+            }
+            .sub-slider .insivia-frmp-event-slide:hover .insivia-frmp-content-dow,
+            .sub-slider .insivia-frmp-event-slide.slick-current .insivia-frmp-content-dow,
+            .sub-slider .insivia-frmp-event-slide:hover .insivia-frmp-content-day,
+            .sub-slider .insivia-frmp-event-slide.slick-current .insivia-frmp-content-day,
+            .sub-slider .insivia-frmp-event-slide:hover .insivia-frmp-content-month,
+            .sub-slider .insivia-frmp-event-slide.slick-current .insivia-frmp-content-month {
+              color: white!important;
+            }
+              .sub-slider .insivia-frmp-content-day {
+                font-family: 'Neutre Bold';
+                font-size: 60px;
+                line-height: 45px;
+                padding: 0 5px 5px;
+              }
+        
+        .sub-slider .insivia-frmp-sub-content-right { float: left; padding-left: 10px; width: 70%; }
+          .sub-slider .insivia-frmp-content-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            padding: 10px;
+            display: block;
+            color: #5379a9;
+            font-family: roboto;
+              -webkit-transition: all ease-in-out 0.4s;
+              -moz-transition: all ease-in-out 0.4s;
+              -o-transition: all ease-in-out 0.4s;
+              -ms-transition: all ease-in-out 0.4s;
+            transition: all ease-in-out 0.4s;
+          }
+          .sub-slider .insivia-frmp-location {
+            padding-top: 0;
+            padding-bottom: 12px;
+            font-size: 13px;
+            margin: 0;
+            padding: 10px;
+            display: block;
+            color: #5379a9;
+            font-family: roboto;
+              -webkit-transition: all ease-in-out 0.4s;
+              -moz-transition: all ease-in-out 0.4s;
+              -o-transition: all ease-in-out 0.4s;
+              -ms-transition: all ease-in-out 0.4s;
+            transition: all ease-in-out 0.4s;
+          }
+            .sub-slider .insivia-frmp-event-slide:hover .insivia-frmp-content-title,
+            .sub-slider .insivia-frmp-event-slide.slick-current .insivia-frmp-content-title,
+            .sub-slider .insivia-frmp-event-slide:hover .insivia-frmp-location,
+            .sub-slider .insivia-frmp-event-slide.slick-current .insivia-frmp-location {
+              color: white;
+            }
+      
+      .sub-slider .insivia-frmp-content-right {
+        width: 12.9%;
+        float: right;
+        padding: 11% 0;
+        text-align: center;
+      }
+        .sub-slider .insivia-frmp-content-arrow {
+          background-color: rgba(255,255,255,0.5);
+          color: transparent;
+          font-size: 25px;
+          text-decoration: none;
+          margin-top: 0;
+            -webkit-transition: all ease-in-out 0.4s;
+            -moz-transition: all ease-in-out 0.4s;
+            -o-transition: all ease-in-out 0.4s;
+            -ms-transition: all ease-in-out 0.4s;
+          transition: all ease-in-out 0.4s;
+          padding: 5px 8px;
+          text-align: right;
+          float: right;
+          outline: none;
+          position: relative;
+        }
+        .sub-slider .insivia-frmp-content-arrow:before {
+          color: #5379a9;
+          font-family: 'Icons';
+          content: '\f061';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 10px;
+          font-size: 16px;
+          text-align: center;
+        }
+#slide-event-view-all a {
+  color: #5379a9;
+  display: block;
+  width: 100%;
+  padding: 15% 0;
+  text-align: center;
+  text-decoration: none;
+}
+#slide-event-view-all:hover a { color: white; }
+
+.view-all-button a {
+  color: #5379a9;
+  width: 100%;
+  text-align: right;
+  text-decoration: none;
+  float: right;
+  width: auto;
+}
+.activity-upcoming-events-slider { padding: 50px 0; }
+
+#reserve-ice-rink { margin: 25px 0; }
+
+/* Reservation Calendar */
+ #insivia-frmp-reservation-calendar { max-width: 75%; margin: 50px auto; }
+  #insivia-frmp-reservation-calendar .insivia-frmp-calendar-days .insivia-frmp-calendar-day { min-height: 150px; background-color: #ff4d4d;  }
+    #insivia-frmp-reservation-calendar .insivia-frmp-calendar-days .insivia-frmp-calendar-day.available { background-color: #3c5e28; cursor: pointer; }
+      #insivia-frmp-reservation-calendar .insivia-frmp-calendar-day-content { background-color: transparent!important; color: white; }
+      #insivia-frmp-reservation-calendar .insivia-frmp-calendar-day-content .insivia-frmp-row .insivia-frmp-calendar-date { color: white!important; }
+  
+/* Reservation Form */  
+.reservation-form-wrapper form {
+  width: 50%;
+  min-width: 300px;
+  margin: 25px auto;
+  background-color: #eaeff5;
+}
+  .reservation-form-wrapper form > p {
+    font-size: 32px;
+    background: white;
+    padding: 10px;
+    text-align: center;
+  }
+  .reservation-form-wrapper form div { padding: 25px; }
+  .reservation-form-wrapper form div li { padding: 0.3em 0; }
+    .reservation-form-wrapper form div li label {
+      color: #417caf;
+      font-size: 12px;
+      display: block;
+      font-weight: 400;
+      padding-bottom: 5px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .reservation-form-wrapper form div li select {
+      background-color: white;
+      height: 32px;
+      border: none;
+      outline: none;
+      width: 100%;
+      display: block;
+      text-transform: none;
+    }
+    .reservation-form-wrapper form .register {
+      background-color: #e46d24;
+      font-family: 'Neutre Demi';
+      letter-spacing: 1px;
+      color: white;
+      text-transform: uppercase;
+      padding: 0.8em 1.2em;
+      text-align: center;
+      text-decoration: none;
+      margin: 1em 0;
+      font-size: 12pt;
+      font-weight: 100;
+      border: none;
+        -webkit-transition: all ease-in-out 0.4s;
+        -moz-transition: all ease-in-out 0.4s;
+        -o-transition: all ease-in-out 0.4s;
+        -ms-transition: all ease-in-out 0.4s;
+      transition: all ease-in-out 0.4s;
+    }
+
+/* Cart */
+.cart-title { float: none; display: block; width: 100%; }
+#register-cart,
+#reserve-cart {
+  width: 50%;
+  float: left;
+  padding: 10px;
+}
+.cart-list { margin: 0!important; padding: 0; }
+  .cart-item {
+    list-style: none;
+    margin-left: 0!important;
+    padding: 20px 10px!important;
+    background-color: white;
+    margin: 10px 0 0;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+  }
+    .cart-item:before { display: none; }
+    .cart-item:last-of-type { border-bottom: none; }
+    .cart-item-link { color: #417caf!important; display: block; }
+      .cart-item-link + span { display: block; }
+        span .cart-item-date,
+        span .cart-item-time,
+        span .participant-count-form,
+        span .delete-this-item,
+        span .cart-item-price { display: block; padding: 0 2px; float: left; vertical-align: middle; width: 40%; }
+
+        span .cart-item-time { width: 26%; }
+        span .participant-count-form { width: 16.5%; }
+        span .cart-item-price { width: 50px; }
+        span .delete-this-item {
+          width: 25px;
+          text-align: center;
+          color: #F2F2F2!important;
+          font-size: 30px;
+          font-weight: 400;
+        }
+      
+    .participant-count {
+      background-color: #F2F2F2;
+      height: 32px;
+      border: none;
+      outline: none;
+      width: 50px;
+      display: block;
+      text-transform: none;
+      float: left;
+    }
+
+#insivia-frmp-cart .total {
+  background-color: #417caf;
+  padding: 20px;
+  color: rgba(255,255,255,0.8);
+  font-size: 10px;
+}
+  #insivia-frmp-cart .total .total-value { font-size: 14px; color: white; }
+    #insivia-frmp-cart .total p { float: left; }
+      #insivia-frmp-cart .total p:first-of-type { width: 45%; }
+  
+  #insivia-frmp-cart .continue-shopping {
+    font-family: 'Neutre Bold';
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.8);
+    color: #417caf!important;
+    margin-right: 5px;
+  }
+  #insivia-frmp-cart .checkout {
+    padding: 5px 10px;
+    color: white!important;
+    background: #e46d24;
+    font-family: 'Neutre Bold';
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+#insivia-frmp-facility-cart span .cart-item-date { width: 40%; }
+#insivia-frmp-facility-cart span .cart-item-time { width: 26%; }
+
+#clear-cart {
+  float: right;
+  font-family: 'Neutre Bold';
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background: #ff4d4d;
+  color: white!important;
+}
+
+.insivia-frmp-message .insivia-frmp-lighbox-popup-close {
+  position: relative!important;
+  display: inline!important;
+  background: transparent!important;
+}
+  .insivia-frmp-message .insivia-frmp-lighbox-popup-close:after {
+    display: none!important;
+    visibility:hidden!important;
+  }
+.results-for { margin: 10px 0; }
+.results-for p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #e46d24;
+}
+.results-for p span{
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4c4c4c;
+} 
+
+.green a,
+.green a:hover { color: #3c5e28; }
+.red,
+.empty-cart { color: #ff4d4d; }
+
+.site-content .insivia-frmp-lighbox-popup-content-wrapper .registration { display: block !important; }
+.insivia-frmp-lighbox-popup-content-wrapper .registration { display: inline-block; width: 49%; vertical-align: middle; }
+
+.more-container a {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.no-cookie-support {
+  position: fixed;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 5px;
+}
+.no-results:before {
+  display: none;
+}
+
+.looking-for-programs {
+  font-size: 14px;
+}
+
+.looking-for-programs a {
+  color: #e46d24;
+  text-decoration: none;
+}
