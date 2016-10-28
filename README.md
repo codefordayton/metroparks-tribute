@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/codefordayton/metroparks-tribute.svg?branch=master)](https://travis-ci.org/codefordayton/metroparks-tribute)
 
 # Five Rivers MetroParks Tribute Page
 A project to help Dayton's Five Rivers MetroParks revamp their tribute page
