@@ -4,7 +4,7 @@
   "description": "A Code for Dayton project to help Dayton's Five Rivers MetroParks revamp their tribute page.",
   "scripts": {
     "start": "browser-sync start --config bsync-config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/codefordayton/metroparks-tribute#readme",
   "devDependencies": {
-    "browser-sync": "^2.13.0"
+    "browser-sync": "^2.13.0",
+    "jasmine": "^2.5.2"
   }
 }
