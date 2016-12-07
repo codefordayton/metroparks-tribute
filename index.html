@@ -1098,6 +1098,19 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
 
 <!-- Code for Dayton Start -->
+<script>
+    var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('insivia-frmp-shelter-map'), {
+          center: { lat: 39.715654, lng: -84.191239 },
+          zoom: 8
+        });
+      }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=initMap"
+    async defer></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
 <script src="./tribute_files/api.js"></script>
 <script type="text/javascript">
@@ -1117,6 +1130,22 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
     function showInfo(data, tabletop) {
         console.log(JSON.stringify(data));
+        data.forEach(function(elem){
+          if(elem.Latitude && elem.Latitude !== "" &&
+              elem.Longitude && elem.Longitude !== ""){
+            var ll = {lat: Number.parseFloat(elem.Latitude), lng: Number.parseFloat(elem.Longitude)};
+            
+            var marker = new google.maps.Marker({
+              position: ll,
+              map: map,
+              title: elem.MetroPark + " " + elem.Type
+            });
+
+          }
+
+        });
+        // TODO -- check if window.map exists... handle properly, etc...
+
     }
 </script>
 
@@ -1338,19 +1367,7 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
 
 
-  <script>
-    var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('insivia-frmp-shelter-map'), {
-          center: { lat: 39.715654, lng: -84.191239 },
-          zoom: 8
-        });
-      }
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=initMap"
-    async defer></script>
-
+ 
 <!--
   <script type="text/javascript" src="./tribute_files/js"></script>
 <script type="text/javascript" src="./tribute_files/slick.min.js"></script>
