@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0056)http://www.metroparks.org/make-a-difference/gifts/honor/ -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
 <html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,7 +116,10 @@ img.emoji {
 <link rel="icon" href="http://www.metroparks.org/wp-content/uploads/2016/05/cropped-FiveFavicon-192x192.png" sizes="192x192">
 <link rel="apple-touch-icon-precomposed" href="http://www.metroparks.org/wp-content/uploads/2016/05/cropped-FiveFavicon-180x180.png">
 <meta name="msapplication-TileImage" content="http://www.metroparks.org/wp-content/uploads/2016/05/cropped-FiveFavicon-270x270.png">
-<script type="text/javascript" async="" src="./tribute_files/saved_resource"></script><script type="text/javascript" charset="UTF-8" src="./tribute_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./tribute_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./tribute_files/stats.js"></script></head>
+<!--
+<script type="text/javascript" async="" src="./tribute_files/saved_resource"></script><script type="text/javascript" charset="UTF-8" src="./tribute_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./tribute_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./tribute_files/stats.js"></script>
+-->
+  </head>
 
 <body class="page page-id-42 page-child parent-pageid-38 page-template-default group-blog"><div id="newsletter_popup_background" class="popup_background" style="opacity: 0; visibility: hidden; background-color: black; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: 100000;"></div><div id="newsletter_popup_wrapper" class="popup_wrapper" style="opacity: 0; visibility: hidden; position: fixed; overflow: auto; z-index: 100001; width: 100%; height: 100%; top: 0px; left: 0px; text-align: center; display: none;"><div id="newsletter_popup" data-popup-initialized="true" class="popup_content" aria-hidden="true" role="dialog" aria-labelledby="open_52485380" style="opacity: 0; visibility: hidden; display: inline-block; outline: none; text-align: left; position: relative; vertical-align: middle;">
 	<div class="newsletter-popup-area">
@@ -1333,8 +1338,21 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
 
 
+  <script>
+    var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('insivia-frmp-shelter-map'), {
+          center: { lat: 39.715654, lng: -84.191239 },
+          zoom: 8
+        });
+      }
+  </script>
 
-<script type="text/javascript" src="./tribute_files/js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=initMap"
+    async defer></script>
+
+<!--
+  <script type="text/javascript" src="./tribute_files/js"></script>
 <script type="text/javascript" src="./tribute_files/slick.min.js"></script>
 <script type="text/javascript" src="./tribute_files/js.cookie.js"></script>
 <script type="text/javascript" src="./tribute_files/core.min.js"></script>
@@ -1352,7 +1370,7 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 <script type="text/javascript" src="./tribute_files/main.js"></script>
 <script type="text/javascript" src="./tribute_files/skip-link-focus-fix.js"></script>
 <script type="text/javascript" src="./tribute_files/wp-embed.min.js"></script>
-
+-->
 
 <footer>
 	<div class="footer-banner-image"></div>
