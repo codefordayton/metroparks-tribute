@@ -1113,6 +1113,7 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
 <script src="./tribute_files/api.js"></script>
+
 <script type="text/javascript">
     window.onload = function() {
         init()
@@ -1126,6 +1127,50 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
             callback: showInfo,
             simpleSheet: true
         });
+    }
+
+    function replaceValues(location){
+    	return [
+    	'<li id="shelter-adirondackparking-lot-shelter-list-item" class="insivia-frmp-list-item">',
+	    	'<span class="insivia-frmp-list-item-content insivia-frmp-row">',
+	    		'<span class="insivia-frmp-list-item-content-left">',
+	    			'<p class="insivia-frmp-list-item-name">', location.Type,'<span class="insivia-frmp-list-item-location"> at ', location.MetroPark, '</span>',
+	    			'</p>',
+	    			'<p class="insivia-frmp-list-item-address-wrapper">',
+	    				'<span class="insivia-frmp-list-item-address"></span>',
+	    			'</p>',
+	    			'<span class="insivia-frmp-gallery-link">',
+	    				'<a href="/gallery786131" data-api="facilities" data-id="786131" data-type="facility">View gallery</a>',
+	    			'</span>',
+	    		'</span>',
+	    		'<span class="insivia-frmp-list-item-content-middle">',
+	    			'<span class="insivia-frmp-list-item-list-content-top">',
+	    				'<p class="insivia-frmp-list-item-capacity"><strong>Cost:</strong> ',
+	    					location.Cost,'<span class="insivia-frmp-list-item-capacity-value"></span>',
+	    				'</p>',
+	    			'</span>',
+	    			'<span class="insivia-frmp-list-item-amenities">',
+	    				'<p><strong>Location Description</strong></p>',
+	    				'<!-- <ul class="insivia-frmp-list-item-amenities-list insivia-frmp-row">',
+	    					'<li class="insivia-frmp-list-item-amenity carry-in-water" data-name="Carry in Water" title="Carry in Water"></li>',
+	    					'<li class="insivia-frmp-list-item-amenity grills" data-name="Grills" title="Grills"></li>',
+	    					'<li class="insivia-frmp-list-item-amenity nature-trails" data-name="Nature trails" title="Nature trails"></li>' ,
+	    					'<li class="insivia-frmp-list-item-amenity picnic-tables" data-name="Picnic Tables" title="Picnic Tables"></li>' ,
+	    				'</ul> -->',
+	    				'<p>Location Status: ', location.Status, '</p>',
+	    			'</span>' ,
+	    		'</span>',
+	    		'<span class="insivia-frmp-list-item-content-right">',
+	    			'<!-- <p class="insivia-frmp-list-item-view-details-wrapper">',
+	    				'<a href="786131" class="blue-btn btn interactive-map-listing-btn view-details popup-btn" data-api="facilities" data-id="786131" data-type="facility">View details</a>',
+	    			'</p> -->',
+	    			'<p class="insivia-frmp-list-item-reserve-now-wrapper">',
+	    				'<a class="blue-btn btn reserve-now" data-id="786131">Purchase Now</a>',
+	    			'</p>',
+	    		'</span>',
+	    	'</span>',
+	    '</li>'
+    	].join('');
     }
 
     function showInfo(data, tabletop) {
@@ -1142,10 +1187,15 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
             });
 
           }
-
         });
-        // TODO -- check if window.map exists... handle properly, etc...
-
+    	// console.log(tabletop.sheets('Sheet1').column_names);
+    	// console.log(JSON.stringify(data));
+		for (someLocation of data){
+    		// console.log("New Location" + JSON.stringify(location));
+			// console.log(someLocation);
+			// console.log(replaceValues(someLocation));
+			$('#tribute-searchresults').append(replaceValues(someLocation));
+    }
     }
 </script>
 
@@ -1194,7 +1244,6 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
     <div class="results-for">
         <!-- Put Search Results Here -->
         <ul id="tribute-searchresults" class="list-view">
-            <li id="shelter-adirondackparking-lot-shelter-list-item" class="insivia-frmp-list-item"><span class="insivia-frmp-list-item-content insivia-frmp-row"><span class="insivia-frmp-list-item-content-left"><p class="insivia-frmp-list-item-name">Shelter: Adirondack/Parking Lot at <span class="insivia-frmp-list-item-location">Hills &amp; Dales MetroPark</span></p><p class="insivia-frmp-list-item-address-wrapper"><span class="insivia-frmp-list-item-address">2648 S. Patterson Blvd. </span><span class="insivia-frmp-list-item-city">Kettering</span>, <span class="insivia-frmp-list-item-state">OH</span> <span class="insivia-frmp-list-item-zip">45409</span></p><span class="insivia-frmp-gallery-link"><a href="/gallery786131" data-api="facilities" data-id="786131" data-type="facility">View gallery</a></span></span><span class="insivia-frmp-list-item-content-middle"><span class="insivia-frmp-list-item-list-content-top"><p class="insivia-frmp-list-item-capacity"><strong>Capacity:</strong> <span class="insivia-frmp-list-item-capacity-value">20</span></p></span><span class="insivia-frmp-list-item-amenities"><p><strong>Amenities</strong></p><ul class="insivia-frmp-list-item-amenities-list insivia-frmp-row"><li class="insivia-frmp-list-item-amenity carry-in-water" data-name="Carry in Water" title="Carry in Water"></li><li class="insivia-frmp-list-item-amenity grills" data-name="Grills" title="Grills"></li><li class="insivia-frmp-list-item-amenity nature-trails" data-name="Nature trails" title="Nature trails"></li><li class="insivia-frmp-list-item-amenity picnic-tables" data-name="Picnic Tables" title="Picnic Tables"></li></ul></span></span><span class="insivia-frmp-list-item-content-right"><p class="insivia-frmp-list-item-view-details-wrapper"><a href="786131" class="blue-btn btn interactive-map-listing-btn view-details popup-btn" data-api="facilities" data-id="786131" data-type="facility">View details</a></p><p class="insivia-frmp-list-item-reserve-now-wrapper"><a class="blue-btn btn reserve-now" data-id="786131">Reserve now</a></p></span></span></li>
         </ul>
     </div>
 
