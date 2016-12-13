@@ -80,14 +80,8 @@ function cfdShowInfo(data, tabletop) {
                     title: elem.MetroPark + " " + elem.Type + ': ' + elem['Location Description']
                 });
 			}
+
+            $('#tribute-searchresults').append(replaceValues(elem));
 		}
     });
-    // console.log(tabletop.sheets('Sheet1').column_names);
-    // console.log(JSON.stringify(data));
-    for (someLocation of data) {
-        // console.log("New Location" + JSON.stringify(location));
-        // console.log(someLocation);
-        // console.log(replaceValues(someLocation));
-        $('#tribute-searchresults').append(replaceValues(someLocation));
-    }
 }
