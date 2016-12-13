@@ -81,7 +81,7 @@ function cfdShowInfo(data, tabletop) {
                 });
 			}
 
-            $('#tribute-searchresults').append(replaceValues(someLocation));
+            $('#tribute-searchresults').append(replaceValues(elem));
 		}
     });
 }
