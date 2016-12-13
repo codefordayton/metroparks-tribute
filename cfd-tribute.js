@@ -69,20 +69,18 @@ function replaceValues(location) {
 function cfdShowInfo(data, tabletop) {
     console.log(JSON.stringify(data));
     data.forEach(function(elem) {
-        if (elem.Latitude && elem.Latitude !== "" &&
-            elem.Longitude && elem.Longitude !== "") {
-            var ll = {
-                lat: Number.parseFloat(elem.Latitude),
-                lng: Number.parseFloat(elem.Longitude)
-            };
+        if (elem) {
+			let lat = parseFloat(elem.Latitude);
+			let lon = parseFloat(elem.Longitude);
 
-            var marker = new google.maps.Marker({
-                position: ll,
-                map: cfdTributeMap,
-                title: elem.MetroPark + " " + elem.Type
-            });
-
-        }
+			if (lat && lon) {
+				var marker = new google.maps.Marker({
+                    position: {lat: lat, lng: lon},
+                    map: cfdTributeMap,
+                    title: elem.MetroPark + " " + elem.Type + ': ' + item['Location Description']
+                });
+			}
+		}
     });
     // console.log(tabletop.sheets('Sheet1').column_names);
     // console.log(JSON.stringify(data));
