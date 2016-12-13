@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0056)http://www.metroparks.org/make-a-difference/gifts/honor/ -->
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
 
@@ -9,7 +9,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://www.metroparks.org/xmlrpc.php">
 <link href="./tribute_files/css" rel="stylesheet" type="text/css">
-<script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="./tribute_files/recaptcha__en.js"></script>
+
 <title>Honor a Loved One - Five Rivers MetroParks</title>
 
 <!-- This site is optimized with the Yoast SEO plugin v3.4 - https://yoast.com/wordpress/plugins/seo/ -->
@@ -1098,106 +1098,10 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
 
 <!-- Code for Dayton Start -->
-<script>
-    var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('insivia-frmp-shelter-map'), {
-          center: { lat: 39.715654, lng: -84.191239 },
-          zoom: 8
-        });
-      }
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=initMap"
-    async defer></script>
-
+<script src="cfd-tribute.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=cfdInitMap" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
-<script src="./tribute_files/api.js"></script>
 
-<script type="text/javascript">
-    window.onload = function() {
-        init()
-    };
-
-    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1tA1G_0xZfZLkvDK92QOjQ8JC59XtfiMpWUyWdvZiVE8/pubhtml';
-
-    function init() {
-        Tabletop.init({
-            key: public_spreadsheet_url,
-            callback: showInfo,
-            simpleSheet: true
-        });
-    }
-
-    function replaceValues(location){
-    	return [
-    	'<li id="shelter-adirondackparking-lot-shelter-list-item" class="insivia-frmp-list-item">',
-	    	'<span class="insivia-frmp-list-item-content insivia-frmp-row">',
-	    		'<span class="insivia-frmp-list-item-content-left">',
-	    			'<p class="insivia-frmp-list-item-name">', location.Type,'<span class="insivia-frmp-list-item-location"> at ', location.MetroPark, '</span>',
-	    			'</p>',
-	    			'<p class="insivia-frmp-list-item-address-wrapper">',
-	    				'<span class="insivia-frmp-list-item-address"></span>',
-	    			'</p>',
-	    			'<span class="insivia-frmp-gallery-link">',
-	    				'<a href="/gallery786131" data-api="facilities" data-id="786131" data-type="facility">View gallery</a>',
-	    			'</span>',
-	    		'</span>',
-	    		'<span class="insivia-frmp-list-item-content-middle">',
-	    			'<span class="insivia-frmp-list-item-list-content-top">',
-	    				'<p class="insivia-frmp-list-item-capacity"><strong>Cost:</strong> ',
-	    					location.Cost,'<span class="insivia-frmp-list-item-capacity-value"></span>',
-	    				'</p>',
-	    			'</span>',
-	    			'<span class="insivia-frmp-list-item-amenities">',
-	    				'<p><strong>Location Description</strong></p>',
-	    				'<!-- <ul class="insivia-frmp-list-item-amenities-list insivia-frmp-row">',
-	    					'<li class="insivia-frmp-list-item-amenity carry-in-water" data-name="Carry in Water" title="Carry in Water"></li>',
-	    					'<li class="insivia-frmp-list-item-amenity grills" data-name="Grills" title="Grills"></li>',
-	    					'<li class="insivia-frmp-list-item-amenity nature-trails" data-name="Nature trails" title="Nature trails"></li>' ,
-	    					'<li class="insivia-frmp-list-item-amenity picnic-tables" data-name="Picnic Tables" title="Picnic Tables"></li>' ,
-	    				'</ul> -->',
-	    				'<p>Location Status: ', location.Status, '</p>',
-	    			'</span>' ,
-	    		'</span>',
-	    		'<span class="insivia-frmp-list-item-content-right">',
-	    			'<!-- <p class="insivia-frmp-list-item-view-details-wrapper">',
-	    				'<a href="786131" class="blue-btn btn interactive-map-listing-btn view-details popup-btn" data-api="facilities" data-id="786131" data-type="facility">View details</a>',
-	    			'</p> -->',
-	    			'<p class="insivia-frmp-list-item-reserve-now-wrapper">',
-	    				'<a class="blue-btn btn reserve-now" data-id="786131">Purchase Now</a>',
-	    			'</p>',
-	    		'</span>',
-	    	'</span>',
-	    '</li>'
-    	].join('');
-    }
-
-    function showInfo(data, tabletop) {
-        console.log(JSON.stringify(data));
-        data.forEach(function(elem){
-          if(elem.Latitude && elem.Latitude !== "" &&
-              elem.Longitude && elem.Longitude !== ""){
-            var ll = {lat: Number.parseFloat(elem.Latitude), lng: Number.parseFloat(elem.Longitude)};
-            
-            var marker = new google.maps.Marker({
-              position: ll,
-              map: map,
-              title: elem.MetroPark + " " + elem.Type
-            });
-
-          }
-        });
-    	// console.log(tabletop.sheets('Sheet1').column_names);
-    	// console.log(JSON.stringify(data));
-		for (someLocation of data){
-    		// console.log("New Location" + JSON.stringify(location));
-			// console.log(someLocation);
-			// console.log(replaceValues(someLocation));
-			$('#tribute-searchresults').append(replaceValues(someLocation));
-    }
-    }
-</script>
 
 <h1 class="subpage-headline">Honor a Loved One</h1>
 <p class="subpage-description">Honor a loved one or celebrate a holiday, birthday or other special occasion with a unique, lasting gift at your favorite MetroPark</p>
@@ -1416,7 +1320,7 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 
 
 
- 
+
 <!--
   <script type="text/javascript" src="./tribute_files/js"></script>
 <script type="text/javascript" src="./tribute_files/slick.min.js"></script>
