@@ -77,7 +77,7 @@ function cfdShowInfo(data, tabletop) {
 				var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lon},
                     map: cfdTributeMap,
-                    title: elem.MetroPark + " " + elem.Type + ': ' + item['Location Description']
+                    title: elem.MetroPark + " " + elem.Type + ': ' + elem['Location Description']
                 });
 			}
 		}
