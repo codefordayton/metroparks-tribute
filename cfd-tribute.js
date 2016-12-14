@@ -47,7 +47,8 @@ function cfdShowInfo(data, tabletop) {
         row.find('.insivia-frmp-list-item-type').text(elem.Type);
         row.find('.insivia-frmp-list-item-location').text('at ' + elem.MetroPark);
         row.find('.insivia-frmp-list-item-cost').text(elem.Cost);
-        row.find('.insivia-frmp-list-item-location-status').text('Location Status: ' + elem.Status);
+        row.find('.insivia-frmp-list-item-location-description').html('<strong>' + elem['Location Description'] + '</strong>');
+        row.find('.insivia-frmp-list-item-location-status').html('<strong>Status:</strong> ' + elem.Status);
         jQuery('#tribute-searchresults').append(row);
 
     });
