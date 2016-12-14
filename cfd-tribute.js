@@ -24,6 +24,8 @@ function cfdInitMap() {
 
 function cfdShowInfo(data, tabletop) {
     console.log('Loaded ' + data.length + ' tribute items...');
+
+    let bounds = new google.maps.LatLngBounds();
     data.forEach(function(elem) {
         if (elem) {
 			let lat = parseFloat(elem.Latitude);
@@ -35,6 +37,8 @@ function cfdShowInfo(data, tabletop) {
                     map: cfdTributeMap,
                     title: elem.MetroPark + " " + elem.Type + ': ' + elem['Location Description']
                 });
+
+                bounds.extend({lat: lat, lng: lon});
 			}
 		}
 
@@ -47,4 +51,8 @@ function cfdShowInfo(data, tabletop) {
         jQuery('#tribute-searchresults').append(row);
 
     });
+
+    if (!bounds.isEmpty()) {
+        cfdTributeMap.fitBounds(bounds);
+    }
 }
