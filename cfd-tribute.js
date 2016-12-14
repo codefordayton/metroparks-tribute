@@ -38,6 +38,27 @@ function cfdShowInfo(data, tabletop) {
                     title: elem.MetroPark + " " + elem.Type + ': ' + elem['Location Description']
                 });
 
+                var contentString =
+                    '<div class="marker-content">' +
+                        '<h1>' + elem.Type + '</h1>' +
+                        '<span>' + elem.Cost + '</span><br>' +
+                        '<span><strong>' + elem.MetroPark + '</strong></span><br>' +
+                        '<span>' + elem['Location Description'] + '</span><br>' +
+                        '<span><strong>Status:</strong> ' + elem.Status + '</span>' +
+                    '</div>';
+
+                marker.infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                marker.addListener('click', function() {
+                    if (marker.infowindow.map) {
+                        marker.infowindow.close();
+                    } else {
+                        marker.infowindow.open(cfdTributeMap, marker);
+                    }
+                });
+
                 bounds.extend({lat: lat, lng: lon});
 			}
 		}
