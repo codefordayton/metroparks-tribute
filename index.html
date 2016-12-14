@@ -1101,7 +1101,51 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 <script src="cfd-tribute.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=cfdInitMap" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
-
+<script id="cfd-tribute-result-template" type="text/x-custom-template">
+<li class="insivia-frmp-list-item">
+    <span class="insivia-frmp-list-item-content insivia-frmp-row">
+        <span class="insivia-frmp-list-item-content-left">
+            <p class="insivia-frmp-list-item-name">
+                <span class="insivia-frmp-list-item-type">Type</span>
+                <span class="insivia-frmp-list-item-location">at MetroPark</span>
+            </p>
+            <p class="insivia-frmp-list-item-address-wrapper">
+                <span class="insivia-frmp-list-item-address"></span>
+            </p>
+            <span class="insivia-frmp-gallery-link">
+                <a href="/gallery786131" data-api="facilities" data-type="facility">View gallery</a>
+            </span>
+        </span>
+        <span class="insivia-frmp-list-item-content-middle">
+            <span class="insivia-frmp-list-item-list-content-top">
+                <p class="insivia-frmp-list-item-capacity">
+                    <strong>Cost:</strong>
+                    <span class="insivia-frmp-list-item-cost">Cost</span>
+                    <span class="insivia-frmp-list-item-capacity-value"></span>
+                </p>
+            </span>
+            <span class="insivia-frmp-list-item-amenities">
+                <p><strong>Location Description</strong></p>
+                    <!-- <ul class="insivia-frmp-list-item-amenities-list insivia-frmp-row">
+                    <li class="insivia-frmp-list-item-amenity carry-in-water" data-name="Carry in Water" title="Carry in Water"></li>
+                    <li class="insivia-frmp-list-item-amenity grills" data-name="Grills" title="Grills"></li>
+                    <li class="insivia-frmp-list-item-amenity nature-trails" data-name="Nature trails" title="Nature trails"></li>
+                    <li class="insivia-frmp-list-item-amenity picnic-tables" data-name="Picnic Tables" title="Picnic Tables"></li>
+                    </ul> -->
+                <p class="insivia-frmp-list-item-location-status">Location Status: Status</p>
+            </span>
+        </span>
+        <span class="insivia-frmp-list-item-content-right">
+            <!-- <p class="insivia-frmp-list-item-view-details-wrapper">
+            <a href="786131" class="blue-btn btn interactive-map-listing-btn view-details popup-btn" data-type="facility">View details</a>
+            </p> -->
+            <p class="insivia-frmp-list-item-reserve-now-wrapper">
+                <a class="blue-btn btn reserve-now">Purchase Now</a>
+            </p>
+        </span>
+    </span>
+</li>
+</script>
 
 <h1 class="subpage-headline">Honor a Loved One</h1>
 <p class="subpage-description">Honor a loved one or celebrate a holiday, birthday or other special occasion with a unique, lasting gift at your favorite MetroPark</p>
