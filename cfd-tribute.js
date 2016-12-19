@@ -25,6 +25,8 @@ function cfdInitMap() {
 function cfdShowInfo(data, tabletop) {
     console.log('Loaded ' + data.length + ' tribute items...');
 
+    let uniqueParks = [];
+    let uniqueTypes = [];
     let bounds = new google.maps.LatLngBounds();
     data.forEach(function(elem) {
         if (elem) {
@@ -61,6 +63,18 @@ function cfdShowInfo(data, tabletop) {
 
                 bounds.extend({lat: lat, lng: lon});
 			}
+
+            // track unique parks and add an item to the filter for each
+            if (elem.MetroPark && uniqueParks.indexOf(elem.MetroPark) === -1) {
+                uniqueParks.push(elem.MetroPark);
+                jQuery('#shelter-filter-parks').append('<option value="' + elem.MetroPark + '">' + elem.MetroPark + '</option>');
+            }
+
+            // track unique types and add an item to the filter for each
+            if (elem.Type && uniqueTypes.indexOf(elem.Type) === -1) {
+                uniqueTypes.push(elem.Type);
+                jQuery('#shelter-filter-types').append('<option value="' + elem.Type + '">' + elem.Type + '</option>');
+            }
 		}
 
         var template = jQuery('#cfd-tribute-result-template').html();
