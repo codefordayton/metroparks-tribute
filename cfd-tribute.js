@@ -4,6 +4,8 @@ window.onload = function() {
 };
 
 var cfdTributeMap;
+var cfdData = [];
+var cfdMarkers = [];
 var CFD_SPREADSHEET = 'https://docs.google.com/spreadsheets/d/1tA1G_0xZfZLkvDK92QOjQ8JC59XtfiMpWUyWdvZiVE8/pubhtml';
 
 // Called on page load
@@ -13,6 +15,13 @@ function cfdInit() {
         callback: cfdShowInfo,
         simpleSheet: true
     });
+
+    jQuery('.data-filter').change(function() {
+        cfdUpdateInfo({
+            park: jQuery('#shelter-filter-parks').val(),
+            type: jQuery('#shelter-filter-types').val()
+        });
+    })
 }
 
 function cfdInitMap() {
@@ -20,6 +29,23 @@ function cfdInitMap() {
         center: { lat: 39.715654, lng: -84.191239 },
         zoom: 8
     });
+}
+
+function cfdUpdateInfo(dataFilters) {
+    let filters = Object.assign({}, dataFilters);
+
+    for (var i = 0; i < cfdMarkers.length; i++) {
+        if ((filters.park && filters.park !== cfdData[cfdMarkers[i].elementIndex].MetroPark) ||
+            (filters.type && filters.type !== cfdData[cfdMarkers[i].elementIndex].Type)) {
+            cfdMarkers[i].setMap(null);
+        }
+        else {
+            cfdMarkers[i].setMap(cfdTributeMap);
+        }
+    }
+
+    jQuery('.cfd-result-row').addClass('hidden-row');
+    jQuery('.cfd-result-row' + (filters.park ? '[data-park="' + filters.park + '"]' : '') + (filters.type ? '[data-type="' + filters.type + '"]' : '')).removeClass('hidden-row');
 }
 
 function cfdShowInfo(data, tabletop) {
@@ -30,6 +56,8 @@ function cfdShowInfo(data, tabletop) {
     let bounds = new google.maps.LatLngBounds();
     data.forEach(function(elem) {
         if (elem) {
+            cfdData.push(elem);
+
 			let lat = parseFloat(elem.Latitude);
 			let lon = parseFloat(elem.Longitude);
 
@@ -39,6 +67,8 @@ function cfdShowInfo(data, tabletop) {
                     map: cfdTributeMap,
                     title: elem.MetroPark + " " + elem.Type + ': ' + elem['Location Description']
                 });
+
+                marker.elementIndex = cfdData.length - 1;
 
                 var contentString =
                     '<div class="marker-content">' +
@@ -60,6 +90,8 @@ function cfdShowInfo(data, tabletop) {
                         marker.infowindow.open(cfdTributeMap, marker);
                     }
                 });
+
+                cfdMarkers.push(marker);
 
                 bounds.extend({lat: lat, lng: lon});
 			}
@@ -84,6 +116,8 @@ function cfdShowInfo(data, tabletop) {
         row.find('.insivia-frmp-list-item-cost').text(elem.Cost);
         row.find('.insivia-frmp-list-item-location-description').html('<strong>Location:</strong> ' + elem['Location Description']);
         row.find('.insivia-frmp-list-item-location-status').html('<strong>Status:</strong> ' + elem.Status);
+        row.attr('data-type', elem.Type);
+        row.attr('data-park', elem.MetroPark);
         jQuery('#tribute-searchresults').append(row);
 
     });

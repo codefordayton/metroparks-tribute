@@ -1103,7 +1103,7 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmkHeH09KSvpyzRVI9cw1NTCLzZP3PIY&callback=cfdInitMap" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
 <script id="cfd-tribute-result-template" type="text/x-custom-template">
-<li class="insivia-frmp-list-item">
+<li class="insivia-frmp-list-item cfd-result-row">
     <span class="insivia-frmp-list-item-content insivia-frmp-row">
         <span class="insivia-frmp-list-item-content-left">
             <p class="insivia-frmp-list-item-name">
@@ -1171,13 +1171,13 @@ var templateUrl = 'http://www.metroparks.org/wp-content/themes/five-rivers';
             <ul class="insivia-frmp-shelter-filter-inputs insivia-frmp-row">
                 <li class="insivia-frmp-shelter-filter-input">
                     <label for="shelter-filter-parks" class="blue">Park</label>
-                    <select name="shelter-filter-parks" id="shelter-filter-parks">
+                    <select name="shelter-filter-parks" id="shelter-filter-parks" class="data-filter">
                             <option value="">All</option>
                     </select>
                 </li>
                 <li class="insivia-frmp-shelter-filter-input">
                     <label for="shelter-filter-types" class="blue">Type</label>
-                    <select name="shelter-filter-types" id="shelter-filter-types">
+                    <select name="shelter-filter-types" id="shelter-filter-types" class="data-filter">
                             <option value="">All</option>
                     </select>
                 </li>
