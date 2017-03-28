@@ -6,7 +6,7 @@ window.onload = function() {
 var cfdTributeMap;
 var cfdData = [];
 var cfdMarkers = [];
-var CFD_SPREADSHEET = 'https://docs.google.com/spreadsheets/d/1tA1G_0xZfZLkvDK92QOjQ8JC59XtfiMpWUyWdvZiVE8/pubhtml';
+var CFD_SPREADSHEET = 'https://docs.google.com/spreadsheets/d/1rOgUf2f6PwxUKVUZ9RgmO6Ulhh5PquNuFvNROovvd1w/pubhtml';
 
 // Called on page load
 function cfdInit() {
