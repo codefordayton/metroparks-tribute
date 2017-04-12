@@ -116,9 +116,18 @@ function cfdShowInfo(data, tabletop) {
         row.find('.insivia-frmp-list-item-cost').text(elem.Cost);
         row.find('.insivia-frmp-list-item-location-description').html('<strong>Location:</strong> ' + elem['Location Description']);
         row.find('.insivia-frmp-list-item-location-status').html('<strong>Status:</strong> ' + elem.Status);
+        if (elem['Photo link'] !== '') {
+          var file_id = elem['Photo link'].slice(elem['Photo link'].indexOf("=") + 1); // exploiting the fact the file id is the only query parameter
+          var asset_url = "https://drive.google.com/uc?export=view&id=" + file_id;
+          row.find('.insivia-frmp-gallery-link').html('<a href="'+ asset_url + '" data-lightbox="image-1" data-title="'+elem['Location Description']+'"><img src="' + asset_url + '"" width="64" height="48"></img></a>');
+        } else{
+          row.find('.insivia-frmp-gallery-link').remove();
+        }
         row.attr('data-type', elem.Type);
         row.attr('data-park', elem.MetroPark);
-        jQuery('#tribute-searchresults').append(row);
+        if (elem.Status !== 'Taken') {
+          jQuery('#tribute-searchresults').append(row);
+        }
 
     });
 
