@@ -5,3 +5,21 @@ engines:
     enabled: true
   csslint:
     enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript:
+  fixme:
+    enabled: true
+
+ratings:
+  paths:
+  - "**.htm"
+  - "**.html"
+  - "**.js"
+  - "**.css"
+
+exclude_paths:
+- "*.min.*"
+- spec/**/*
