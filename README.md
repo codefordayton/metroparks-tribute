@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/codefordayton/metroparks-tribute.svg?branch=master)](https://travis-ci.org/codefordayton/metroparks-tribute)
+[![Build Status](https://travis-ci.org/codefordayton/metroparks-tribute.svg?branch=master)](https://travis-ci.org/codefordayton/metroparks-tribute) [![Code Climate](https://codeclimate.com/github/codefordayton/metroparks-tribute/badges/gpa.svg)](https://codeclimate.com/github/codefordayton/metroparks-tribute) [![Issue Count](https://codeclimate.com/github/codefordayton/metroparks-tribute/badges/issue_count.svg)](https://codeclimate.com/github/codefordayton/metroparks-tribute) [![Test Coverage](https://codeclimate.com/github/codefordayton/metroparks-tribute/badges/coverage.svg)](https://codeclimate.com/github/codefordayton/metroparks-tribute/coverage)
 
 # Five Rivers MetroParks Tribute Page
 A project to help Dayton's Five Rivers MetroParks revamp their tribute page
