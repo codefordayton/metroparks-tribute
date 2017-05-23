@@ -116,6 +116,7 @@ function cfdShowInfo(data, tabletop) {
         row.find('.insivia-frmp-list-item-cost').text(elem.Cost);
         row.find('.insivia-frmp-list-item-location-description').html('<strong>Location:</strong> ' + elem['Location Description']);
         row.find('.insivia-frmp-list-item-location-status').html('<strong>Status:</strong> ' + elem.Status);
+        row.find('.insivia-frmp-list-item-reserve-now-wrapper').html('<a class="blue-btn btn reserve-now" href="tribute-checkout?item='+elem['MetroPark']+elem['Type']+elem['Location Description']+'&price='+elem['Cost']+'">Purchase Now</a>');
         if (elem['Photo link'] !== '') {
           var file_id = elem['Photo link'].slice(elem['Photo link'].indexOf("=") + 1); // exploiting the fact the file id is the only query parameter
           var asset_url = "https://drive.google.com/uc?export=view&id=" + file_id;
