@@ -6,6 +6,18 @@
     margin-bottom: 5px !important;
 }
 
+.marker-content div {
+  padding: 1em 0;
+}
+
+.marker-content div a {
+  color: white;
+}
+
+.marker-content div a:hover {
+  color: white;
+}
+
 .hidden-row {
     display: none;
 }
