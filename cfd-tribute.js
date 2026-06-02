@@ -1,3 +1,4 @@
+//import Papa from 'papaparse';
 // Add cfd tribute initialization function to onload
 window.onload = function() {
     cfdInit();
@@ -6,14 +7,18 @@ window.onload = function() {
 var cfdTributeMap;
 var cfdData = [];
 var cfdMarkers = [];
-var CFD_SPREADSHEET = 'https://docs.google.com/spreadsheets/d/1rOgUf2f6PwxUKVUZ9RgmO6Ulhh5PquNuFvNROovvd1w/pubhtml';
+var CFD_SPREADSHEET = 'https://docs.google.com/spreadsheets/d/1rOgUf2f6PwxUKVUZ9RgmO6Ulhh5PquNuFvNROovvd1w/export?format=csv';
+var map = null;
+var noResultsDiv = null;
 
 // Called on page load
 function cfdInit() {
-    Tabletop.init({
-        key: CFD_SPREADSHEET,
-        callback: cfdShowInfo,
-        simpleSheet: true
+    Papa.parse(CFD_SPREADSHEET, {
+        download: true,
+        header: true,
+        complete: function(results) {
+            cfdShowInfo(results.data);
+        }
     });
 
     jQuery('.data-filter').change(function() {
@@ -25,27 +30,38 @@ function cfdInit() {
 }
 
 function cfdInitMap() {
-    cfdTributeMap = new google.maps.Map(document.getElementById('insivia-frmp-shelter-map'), {
-        center: { lat: 39.715654, lng: -84.191239 },
-        zoom: 8
-    });
+    map = L.map('insivia-frmp-shelter-map').setView([39.715654, -84.191239], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 }
 
 function cfdUpdateInfo(dataFilters) {
     let filters = Object.assign({}, dataFilters);
 
+    let bounds = L.latLngBounds();
     for (var i = 0; i < cfdMarkers.length; i++) {
         if ((filters.park && filters.park !== cfdData[cfdMarkers[i].elementIndex].MetroPark) ||
             (filters.type && filters.type !== cfdData[cfdMarkers[i].elementIndex].Type)) {
-            cfdMarkers[i].setMap(null);
+            cfdMarkers[i].remove();
         }
         else {
-            cfdMarkers[i].setMap(cfdTributeMap);
+            cfdMarkers[i].addTo(map);
+            bounds.extend(cfdMarkers[i].getLatLng());
         }
     }
 
     jQuery('.cfd-result-row').addClass('hidden-row');
     jQuery('.cfd-result-row' + (filters.park ? '[data-park="' + filters.park + '"]' : '') + (filters.type ? '[data-type="' + filters.type + '"]' : '')).removeClass('hidden-row');
+
+    if (bounds.isValid()) {
+        map.fitBounds(bounds);
+        noResultsDiv && noResultsDiv.remove();
+        noResultsDiv = null;
+    } else {
+        map.setView([39.715654, -84.191239], 8);
+        noResultsDiv = noResultsDiv || jQuery('<div id="no-results">No results match the selected filters.</div>').appendTo('#insivia-frmp-shelter-map');
+    }
 }
 
 function cfdShowInfo(data, tabletop) {
@@ -53,7 +69,7 @@ function cfdShowInfo(data, tabletop) {
 
     let uniqueParks = [];
     let uniqueTypes = [];
-    let bounds = new google.maps.LatLngBounds();
+    let bounds = L.latLngBounds();
     data.forEach(function(elem) {
         if (elem) {
             cfdData.push(elem);
@@ -62,11 +78,10 @@ function cfdShowInfo(data, tabletop) {
 			let lon = parseFloat(elem.Longitude);
 
 			if (lat && lon) {
-				var marker = new google.maps.Marker({
-                    position: {lat: lat, lng: lon},
-                    map: cfdTributeMap,
-                    title: elem.MetroPark + " " + elem.Type + ': ' + elem['Location Description'],
-                });
+                console.log('Adding marker for ' + elem.MetroPark + ' ' + elem.Type + ': ' + elem['Location Description'] + ' at (' + lat + ', ' + lon + ')');
+				var marker = L.marker([lat, lon]);
+                bounds.extend(marker.getLatLng());
+                console.log('Marker created, adding to map and binding popup...', marker);
 
                 marker.elementIndex = cfdData.length - 1;
 
@@ -91,20 +106,7 @@ function cfdShowInfo(data, tabletop) {
                         '<div>' + purchase_html + '</div>'
                     '</div>';
 
-                marker.infowindow = new google.maps.InfoWindow({
-                    content: contentString
-                });
-
-                marker.addListener('click', function() {
-                    for (var i = 0; i < cfdMarkers.length; i++) {
-                      cfdMarkers[i].infowindow.close()
-                    }
-                    if (marker.infowindow.map) {
-                        marker.infowindow.close();
-                    } else {
-                        marker.infowindow.open(cfdTributeMap, marker);
-                    }
-                });
+                marker.bindPopup(contentString).addTo(map);
 
                 cfdMarkers.push(marker);
 
@@ -147,7 +149,7 @@ function cfdShowInfo(data, tabletop) {
 
     });
 
-    if (!bounds.isEmpty()) {
-        cfdTributeMap.fitBounds(bounds);
+    if (bounds.isValid()) {
+        map.fitBounds(bounds);
     }
 }
