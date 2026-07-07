@@ -29,11 +29,20 @@ function cfdInit() {
     })
 }
 
-function cfdInitMap() {
+    async function cfdInitMap() {
     map = L.map('insivia-frmp-shelter-map').setView([39.715654, -84.191239], 8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+
+    const response = await fetch('./park-bounds.geojson');
+    const geodata = await response.json();
+
+    L.geoJSON(geodata, {
+    style: function (feature) {
+        return {opacity: 0, fillOpacity: 0};
+    }
+}).addTo(map);
 }
 
 function cfdUpdateInfo(dataFilters) {
